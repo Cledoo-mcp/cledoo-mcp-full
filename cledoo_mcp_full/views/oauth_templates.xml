@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <!-- web.frontend_layout (not bare web.layout, which ships zero CSS):
+       Bootstrap + viewport meta, with the stock header/footer disabled so
+       the consent card is the only thing on the page. -->
+  <template id="oauth_consent" name="MCP OAuth Consent">
+    <t t-call="web.frontend_layout">
+      <t t-set="title">Authorize access</t>
+      <t t-set="no_header" t-value="True"/>
+      <t t-set="no_footer" t-value="True"/>
+      <t t-set="pageName" t-value="'mcp_oauth_consent'"/>
+      <div class="d-flex justify-content-center align-items-start bg-light"
+           style="min-height:100vh;padding:48px 16px;">
+        <div class="card shadow-sm border-0" style="max-width:480px;width:100%;">
+          <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-4">
+              <img src="/web/binary/company_logo" alt="Company logo"
+                   class="mb-3" style="max-height:48px;max-width:200px;"/>
+              <h4 class="mb-0">Authorize access</h4>
+            </div>
+
+            <p class="mb-1">
+              <strong t-esc="client_name"/>
+              <!-- Shown only when the redirect host is not in the trusted
+                   list: client_name is self-declared (open DCR), and this
+                   caution is the anti-phishing signal for unknown hosts. -->
+              <span t-if="not client_trusted" class="text-muted">(unverified application)</span>
+              is requesting access to your Odoo account.
+            </p>
+            <p class="text-muted small mb-4">
+              You will be redirected to
+              <strong t-esc="redirect_host"/> after your decision.
+            </p>
+
+            <t t-call="cledoo_mcp_full.oauth_consent_permissions"/>
+
+            <p class="text-muted small mb-4">
+              Signed in as <strong t-esc="user_name"/>.
+              The application acts with your Odoo permissions — it can never
+              see or change more than you can.
+              You can revoke this access at any time in
+              <i>Settings &#8594; General Settings &#8594; MCP Server</i>.
+            </p>
+
+            <form method="post" t-att-action="form_action">
+              <input type="hidden" name="csrf_token" t-att-value="csrf_token"/>
+              <input type="hidden" name="client_id" t-att-value="client_id"/>
+              <input type="hidden" name="redirect_uri" t-att-value="redirect_uri"/>
+              <input type="hidden" name="state" t-att-value="state"/>
+              <input type="hidden" name="code_challenge" t-att-value="code_challenge"/>
+              <input type="hidden" name="code_challenge_method" t-att-value="code_challenge_method"/>
+              <input type="hidden" name="resource" t-att-value="resource"/>
+              <div class="d-grid gap-2">
+                <button type="submit" name="decision" value="allow"
+                        class="btn btn-primary">Allow access</button>
+                <button type="submit" name="decision" value="deny"
+                        class="btn btn-outline-secondary">Deny</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+
+  <!-- Named seam: MCP Pro inherits this to add scope pickers (read-only /
+       selected models) without touching the consent page layout. -->
+  <template id="oauth_consent_permissions" name="MCP OAuth Consent Permissions">
+    <div class="border rounded p-3 mb-4 bg-light">
+      <p class="small fw-bold mb-2">If you allow, this application will be able to:</p>
+      <ul class="small mb-0 ps-3">
+        <li t-foreach="permissions" t-as="perm" t-esc="perm"/>
+      </ul>
+    </div>
+  </template>
+</odoo>

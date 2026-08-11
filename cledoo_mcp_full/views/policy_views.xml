@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <record id="mcp_policy_view_list" model="ir.ui.view">
+    <field name="name">mcp.policy.list</field>
+    <field name="model">mcp.policy</field>
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+        <field name="principal_pattern"/>
+        <field name="model_pattern"/>
+        <field name="operation"/>
+        <field name="fields_deny" optional="show"/>
+        <field name="verdict"/>
+        <field name="mode" decoration-info="mode == 'dry_run'"/>
+        <field name="active" widget="boolean_toggle"/>
+        <button name="action_simulate" type="object" string="Simulate"
+                icon="fa-flask"/>
+        <button name="action_promote" type="object" string="Enforce"
+                icon="fa-check" invisible="mode == 'enforce'"/>
+      </list>
+    </field>
+  </record>
+  <record id="action_mcp_policy" model="ir.actions.act_window">
+    <field name="name">MCP Policies</field>
+    <field name="res_model">mcp.policy</field>
+    <field name="view_mode">list</field>
+  </record>
+</odoo>

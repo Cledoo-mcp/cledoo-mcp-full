@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <record id="view_mcp_model_profile_list" model="ir.ui.view">
+    <field name="name">mcp.model.profile.list</field>
+    <field name="model">mcp.model.profile</field>
+    <field name="arch" type="xml">
+      <list string="Featured models" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="model_name"/>
+        <field name="llm_hint"/>
+        <field name="featured"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_mcp_model_profile" model="ir.actions.act_window">
+    <field name="name">Featured models (AI catalog)</field>
+    <field name="res_model">mcp.model.profile</field>
+    <field name="view_mode">list</field>
+  </record>
+
+  <record id="view_mcp_endpoint_activity_list" model="ir.ui.view">
+    <field name="name">mcp.endpoint.activity.list</field>
+    <field name="model">mcp.endpoint.activity</field>
+    <field name="arch" type="xml">
+      <list string="MCP activity" create="false" edit="false" import="false">
+        <field name="kind"/>
+        <field name="user_id"/>
+        <field name="last_used_at"/>
+        <field name="call_count"/>
+        <field name="error_count"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_mcp_endpoint_activity" model="ir.actions.act_window">
+    <field name="name">MCP activity</field>
+    <field name="res_model">mcp.endpoint.activity</field>
+    <field name="view_mode">list</field>
+    <field name="context">{'create': False}</field>
+  </record>
+</odoo>

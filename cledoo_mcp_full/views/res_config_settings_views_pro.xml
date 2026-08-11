@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <record id="res_config_settings_view_form_pro" model="ir.ui.view">
+    <field name="name">res.config.settings.form.cledoo.mcp.pro</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="cledoo_mcp_full.res_config_settings_view_form_mcp"/>
+    <field name="arch" type="xml">
+      <xpath expr="//block[@name='mcp_server_block']" position="after">
+        <block title="MCP Pro" name="cledoo_mcp_full">
+          <setting string="MCP Pro app"
+                   help="Governance for AI access — the audit trail, policies, data privacy and approvals live in the MCP Pro app in the main menu.">
+            <button name="%(cledoo_mcp_full.action_mcp_audit_log)d"
+                    type="action" string="Audit trail" class="btn-link"/>
+            <button name="%(cledoo_mcp_full.action_mcp_policy)d"
+                    type="action" string="Policies" class="btn-link"/>
+            <button name="%(cledoo_mcp_full.action_mcp_mask_rule)d"
+                    type="action" string="Data privacy" class="btn-link"/>
+            <button name="%(cledoo_mcp_full.action_mcp_approval)d"
+                    type="action" string="Approvals" class="btn-link"/>
+          </setting>
+          <setting string="Read-only mode"
+                   help="Block every write tool for all AI clients at once — the global kill-switch. Per-connection scopes offer finer control.">
+            <field name="pro_mcp_readonly"/>
+          </setting>
+          <setting string="Audit retention" help="Audit rows older than this are dropped by autovacuum. 0 keeps everything.">
+            <field name="pro_audit_retention_days"/>
+            <div class="text-muted mt8">
+              Version <field name="pro_module_version" readonly="1"
+                             class="oe_inline"/>
+            </div>
+          </setting>
+          <setting string="Policy: deny by default" help="Deny any MCP call on a model no policy rule explicitly allows. Build the allow-list with dry-run rules and the simulator first.">
+            <field name="pro_policy_default_deny"/>
+          </setting>
+          <setting string="Monthly digest recipient" help="Email that receives the monthly AI activity report. Empty disables the digest.">
+            <field name="pro_digest_email"/>
+          </setting>
+        </block>
+      </xpath>
+    </field>
+  </record>
+</odoo>

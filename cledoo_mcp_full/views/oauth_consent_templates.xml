@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <template id="oauth_consent_permissions_pro"
+            inherit_id="cledoo_mcp_full.oauth_consent_permissions"
+            name="MCP Pro Consent Scopes">
+    <xpath expr="//div[hasclass('border')]" position="after">
+      <div class="border rounded p-3 mb-4">
+        <p class="small fw-bold mb-2">Access level</p>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pro_scope"
+                 id="pro_scope_full" value="full" checked="checked"/>
+          <label class="form-check-label small" for="pro_scope_full">
+            Full access (within my Odoo permissions)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pro_scope"
+                 id="pro_scope_readonly" value="readonly"/>
+          <label class="form-check-label small" for="pro_scope_readonly">
+            Read-only</label>
+        </div>
+        <input type="hidden" name="pro_scope_models" value=""/>
+      </div>
+    </xpath>
+  </template>
+</odoo>

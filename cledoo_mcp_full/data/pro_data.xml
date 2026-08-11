@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo noupdate="1">
+  <record id="mask_partner_email" model="mcp.mask.rule">
+    <field name="model_name">res.partner</field>
+    <field name="field_name">email</field>
+    <field name="strategy">partial</field>
+    <field name="active" eval="False"/>
+  </record>
+  <record id="mask_partner_phone" model="mcp.mask.rule">
+    <field name="model_name">res.partner</field>
+    <field name="field_name">phone</field>
+    <field name="strategy">partial</field>
+    <field name="active" eval="False"/>
+  </record>
+  <record id="mask_partner_mobile" model="mcp.mask.rule">
+    <field name="model_name">res.partner</field>
+    <field name="field_name">mobile</field>
+    <field name="strategy">partial</field>
+    <field name="active" eval="False"/>
+  </record>
+
+  <record id="behavior_rule_mass_read" model="mcp.behavior.rule">
+    <field name="name">Mass read (possible scraping)</field>
+    <field name="kind">mass_read</field>
+    <field name="threshold">300</field>
+    <field name="window_minutes">10</field>
+    <field name="action">alert</field>
+  </record>
+  <record id="behavior_rule_probing" model="mcp.behavior.rule">
+    <field name="name">Repeated policy denials (probing)</field>
+    <field name="kind">denial_probing</field>
+    <field name="threshold">20</field>
+    <field name="window_minutes">10</field>
+    <field name="action">alert</field>
+  </record>
+  <record id="behavior_rule_export" model="mcp.behavior.rule">
+    <field name="name">Export volume spike</field>
+    <field name="kind">export_spike</field>
+    <field name="threshold">50</field>
+    <field name="window_minutes">30</field>
+    <field name="action">alert</field>
+  </record>
+  <record id="ir_cron_behavior_scan" model="ir.cron">
+    <field name="name">Cledoo MCP Pro: behavior radar scan</field>
+    <field name="model_id" ref="model_mcp_behavior_rule"/>
+    <field name="state">code</field>
+    <field name="code">model._cron_scan()</field>
+    <field name="interval_number">10</field>
+    <field name="interval_type">minutes</field>
+    <field name="active" eval="True"/>
+  </record>
+  <record id="ir_cron_digest" model="ir.cron">
+    <field name="name">Cledoo MCP Pro: monthly activity digest</field>
+    <field name="model_id" ref="model_mcp_behavior_rule"/>
+    <field name="state">code</field>
+    <field name="code">model._cron_digest()</field>
+    <field name="interval_number">1</field>
+    <field name="interval_type">months</field>
+    <field name="active" eval="True"/>
+  </record>
+</odoo>

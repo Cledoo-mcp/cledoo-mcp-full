@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <record id="mcp_policy_simulate_view_form" model="ir.ui.view">
+    <field name="name">mcp.policy.simulate.form</field>
+    <field name="model">mcp.policy.simulate</field>
+    <field name="arch" type="xml">
+      <form>
+        <group>
+          <field name="policy_id"/>
+          <field name="days"/>
+        </group>
+        <group invisible="total_calls == 0">
+          <div class="alert alert-info" role="alert" colspan="2">
+            Under the current rules (first match wins, simulated as if
+            enforced):
+            <field name="would_block" readonly="1" class="o_inline"/> of
+            <field name="total_calls" readonly="1" class="o_inline"/>
+            recorded calls would be blocked,
+            <field name="would_pause" readonly="1" class="o_inline"/>
+            paused for approval. "View calls" lists the calls the
+            selected rule wins. (Field-level rules count model matches —
+            stored rows keep no values.)
+          </div>
+          <button name="action_view_hits" type="object"
+                  string="View calls this rule wins" class="btn-link"/>
+        </group>
+        <footer>
+          <button name="action_simulate" type="object" string="Simulate"
+                  class="btn-primary"/>
+          <button special="cancel" string="Close"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>

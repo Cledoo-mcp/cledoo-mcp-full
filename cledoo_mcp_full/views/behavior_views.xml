@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <record id="mcp_behavior_rule_view_list" model="ir.ui.view">
+    <field name="name">mcp.behavior.rule.list</field>
+    <field name="model">mcp.behavior.rule</field>
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="name"/>
+        <field name="kind"/>
+        <field name="threshold"/>
+        <field name="window_minutes"/>
+        <field name="action"/>
+        <field name="active" widget="boolean_toggle"/>
+      </list>
+    </field>
+  </record>
+  <record id="mcp_behavior_alert_view_list" model="ir.ui.view">
+    <field name="name">mcp.behavior.alert.list</field>
+    <field name="model">mcp.behavior.alert</field>
+    <field name="arch" type="xml">
+      <list create="false" decoration-danger="state == 'new'">
+        <field name="create_date"/>
+        <field name="rule_id"/>
+        <field name="principal_key"/>
+        <field name="count"/>
+        <field name="state"/>
+        <button name="action_ack" type="object" string="Acknowledge"
+                icon="fa-check" invisible="state != 'new'"/>
+      </list>
+    </field>
+  </record>
+  <record id="mcp_principal_suspension_view_list" model="ir.ui.view">
+    <field name="name">mcp.principal.suspension.list</field>
+    <field name="model">mcp.principal.suspension</field>
+    <field name="arch" type="xml">
+      <list create="false">
+        <field name="create_date"/>
+        <field name="principal_key"/>
+        <field name="reason"/>
+        <field name="active" widget="boolean_toggle"/>
+      </list>
+    </field>
+  </record>
+  <record id="action_mcp_behavior_rule" model="ir.actions.act_window">
+    <field name="name">Behavior detectors</field>
+    <field name="res_model">mcp.behavior.rule</field>
+    <field name="view_mode">list</field>
+  </record>
+  <record id="action_mcp_behavior_alert" model="ir.actions.act_window">
+    <field name="name">Behavior alerts</field>
+    <field name="res_model">mcp.behavior.alert</field>
+    <field name="view_mode">list</field>
+  </record>
+  <record id="action_mcp_principal_suspension" model="ir.actions.act_window">
+    <field name="name">Suspensions</field>
+    <field name="res_model">mcp.principal.suspension</field>
+    <field name="view_mode">list</field>
+  </record>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <menuitem id="menu_mcp_pro_root" name="MCP Pro"
+            web_icon="cledoo_mcp_full,static/description/icon.png"
+            groups="base.group_system,cledoo_mcp_full.group_approver" sequence="250"/>
+  <menuitem id="menu_mcp_pro_analytics" name="Analytics"
+            parent="menu_mcp_pro_root" action="action_mcp_audit_report"
+            sequence="10"/>
+  <menuitem id="menu_mcp_pro_audit" name="Audit trail"
+            parent="menu_mcp_pro_root" action="action_mcp_audit_log"
+            sequence="20"/>
+  <menuitem id="menu_mcp_pro_audit_export" name="Export audit"
+            parent="menu_mcp_pro_root" action="action_mcp_audit_export"
+            sequence="21"/>
+  <menuitem id="menu_mcp_pro_policy" name="Policies"
+            parent="menu_mcp_pro_root" action="action_mcp_policy"
+            sequence="30"/>
+  <menuitem id="menu_mcp_pro_mask" name="Data privacy"
+            parent="menu_mcp_pro_root" action="action_mcp_mask_rule"
+            sequence="40"/>
+  <menuitem id="menu_mcp_pro_approval" name="Approvals"
+            parent="menu_mcp_pro_root" action="action_mcp_approval"
+            sequence="50" groups="cledoo_mcp_full.group_approver,base.group_system"/>
+  <menuitem id="menu_mcp_pro_quota" name="Quotas"
+            parent="menu_mcp_pro_root" action="action_mcp_quota"
+            sequence="60"/>
+  <menuitem id="menu_mcp_pro_outbound" name="Outbound confirmations"
+            parent="menu_mcp_pro_root" action="action_mcp_outbound_confirmation"
+            sequence="70" groups="cledoo_mcp_full.group_approver,base.group_system"/>
+  <menuitem id="menu_mcp_pro_apikeys" name="API key scopes"
+            parent="menu_mcp_pro_root" action="action_res_users_apikeys_pro"
+            sequence="80"/>
+  <menuitem id="menu_mcp_pro_behavior_rules" name="Behavior detectors"
+            parent="menu_mcp_pro_root" action="action_mcp_behavior_rule"
+            sequence="90"/>
+  <menuitem id="menu_mcp_pro_behavior_alerts" name="Alerts"
+            parent="menu_mcp_pro_root" action="action_mcp_behavior_alert"
+            sequence="91"/>
+  <menuitem id="menu_mcp_pro_suspensions" name="Suspensions"
+            parent="menu_mcp_pro_root" action="action_mcp_principal_suspension"
+            sequence="92"/>
+</odoo>

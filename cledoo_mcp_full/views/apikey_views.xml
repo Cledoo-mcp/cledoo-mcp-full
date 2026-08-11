@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <record id="res_users_apikeys_view_list_pro" model="ir.ui.view">
+    <field name="name">res.users.apikeys.list.mcp.pro</field>
+    <field name="model">res.users.apikeys</field>
+    <field name="arch" type="xml">
+      <list create="false" editable="bottom">
+        <field name="name" readonly="1"/>
+        <field name="user_id" readonly="1"/>
+        <field name="scope" readonly="1"/>
+        <field name="mcp_readonly"/>
+        <field name="mcp_models"/>
+      </list>
+    </field>
+  </record>
+  <record id="action_res_users_apikeys_pro" model="ir.actions.act_window">
+    <field name="name">API key MCP scopes</field>
+    <field name="res_model">res.users.apikeys</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="res_users_apikeys_view_list_pro"/>
+  </record>
+</odoo>

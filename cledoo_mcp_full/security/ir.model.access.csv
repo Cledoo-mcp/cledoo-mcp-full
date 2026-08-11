@@ -1,0 +1,22 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mcp_oauth_client_sys,mcp.oauth.client.sys,model_mcp_oauth_client,base.group_system,1,0,0,1
+access_mcp_oauth_code_sys,mcp.oauth.code.sys,model_mcp_oauth_code,base.group_system,1,0,0,1
+access_mcp_oauth_token_sys,mcp.oauth.token.sys,model_mcp_oauth_token,base.group_system,1,0,0,1
+access_mcp_model_profile_sys,mcp.model.profile.sys,model_mcp_model_profile,base.group_system,1,1,1,1
+access_mcp_endpoint_activity_sys,mcp.endpoint.activity.sys,model_mcp_endpoint_activity,base.group_system,1,0,0,1
+access_mcp_session_sys,mcp.session.sys,model_mcp_session,base.group_system,1,1,1,1
+access_mcp_audit_log_admin,mcp.audit.log admin,model_mcp_audit_log,base.group_system,1,0,0,1
+access_mcp_policy_admin,mcp.policy admin,model_mcp_policy,base.group_system,1,1,1,1
+access_mcp_audit_export_admin,mcp.audit.export admin,model_mcp_audit_export,base.group_system,1,1,1,1
+access_res_users_apikeys_pro_admin,res.users.apikeys pro admin,base.model_res_users_apikeys,base.group_system,1,1,0,0
+access_mcp_policy_simulate_admin,mcp.policy.simulate admin,model_mcp_policy_simulate,base.group_system,1,1,1,1
+access_mcp_mask_rule_admin,mcp.mask.rule admin,model_mcp_mask_rule,base.group_system,1,1,1,1
+access_mcp_approval_approver,mcp.approval approver,model_mcp_approval,cledoo_mcp_full.group_approver,1,1,0,0
+access_mcp_approval_admin,mcp.approval admin,model_mcp_approval,base.group_system,1,1,0,1
+access_mcp_quota_admin,mcp.quota admin,model_mcp_quota,base.group_system,1,1,1,1
+access_mcp_outbound_confirmation_approver,mcp.outbound.confirmation approver,model_mcp_outbound_confirmation,cledoo_mcp_full.group_approver,1,0,0,0
+access_mcp_outbound_confirmation_admin,mcp.outbound.confirmation admin,model_mcp_outbound_confirmation,base.group_system,1,0,0,1
+access_mcp_audit_report_admin,mcp.audit.report admin,model_mcp_audit_report,base.group_system,1,0,0,0
+access_mcp_behavior_rule_admin,mcp.behavior.rule admin,model_mcp_behavior_rule,base.group_system,1,1,1,1
+access_mcp_behavior_alert_admin,mcp.behavior.alert admin,model_mcp_behavior_alert,base.group_system,1,1,0,1
+access_mcp_principal_suspension_admin,mcp.principal.suspension admin,model_mcp_principal_suspension,base.group_system,1,1,1,1

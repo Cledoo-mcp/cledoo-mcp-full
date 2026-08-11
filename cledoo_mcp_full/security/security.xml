@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <!-- No category/privilege link here on purpose: res.groups exposes
+       category_id directly on Odoo 18 but via res.groups.privilege on
+       Odoo 19 (dual-series landmine); the category is cosmetic
+       (Settings > Users > Groups grouping) so we skip it rather than
+       branch the XML per series. -->
+  <record id="group_approver" model="res.groups">
+    <field name="name">MCP Approver</field>
+    <field name="comment">Can approve MCP write tickets and issue outbound
+      confirmations. The AI agent's own user must NEVER be in this group —
+      it is the human trust boundary.</field>
+  </record>
+</odoo>

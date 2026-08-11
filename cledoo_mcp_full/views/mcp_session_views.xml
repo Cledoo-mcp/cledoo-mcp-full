@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <record id="view_mcp_session_list" model="ir.ui.view">
+    <field name="name">mcp.session.list</field>
+    <field name="model">mcp.session</field>
+    <field name="arch" type="xml">
+      <list string="MCP sessions" create="false" import="false">
+        <field name="name"/>
+        <field name="user_id"/>
+        <field name="principal"/>
+        <field name="remote_addr"/>
+        <field name="last_activity"/>
+        <field name="revoked"/>
+        <button name="action_revoke" type="object" string="Revoke"
+                icon="fa-ban" invisible="revoked"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_mcp_session" model="ir.actions.act_window">
+    <field name="name">MCP sessions</field>
+    <field name="res_model">mcp.session</field>
+    <field name="view_mode">list</field>
+    <field name="context">{'create': False}</field>
+  </record>
+</odoo>

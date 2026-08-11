@@ -1,0 +1,41 @@
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 12px; }
+  .card { border: 1px solid #d0d5dd; border-radius: 8px; padding: 16px; }
+  .state { display: inline-block; padding: 2px 10px; border-radius: 10px;
+           font-size: 12px; font-weight: 600; }
+  .pending { background: #fef0c7; color: #93540a; }
+  .approved { background: #d1fadf; color: #05603a; }
+  .refused, .expired { background: #fee4e2; color: #912018; }
+  .muted { color: #667085; font-size: 12px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>Approval ticket <strong id="ticket">—</strong>
+    <span class="state pending" id="state">pending</span></div>
+  <div class="muted" id="detail">Waiting for a human approver in Odoo.</div>
+</div>
+<script>
+  window.addEventListener("message", function (ev) {
+    var d = (ev.data && ev.data.toolResult) || ev.data || {};
+    if (d.ticket_id) {
+      document.getElementById("ticket").textContent = "#" + d.ticket_id;
+    }
+    if (d.state) {
+      var el = document.getElementById("state");
+      el.textContent = d.state;
+      el.className = "state " + d.state;
+      document.getElementById("detail").textContent =
+        d.state === "approved" ? "Approved — the write was executed." :
+        d.state === "pending" ? "Waiting for a human approver in Odoo." :
+        "Ticket " + d.state + ".";
+    }
+  });
+</script>
+</body>
+</html>

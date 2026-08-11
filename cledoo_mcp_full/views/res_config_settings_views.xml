@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
+<odoo>
+  <record id="res_config_settings_view_form_mcp" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.mcp</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//form" position="inside">
+        <app data-string="MCP Server" string="MCP Server" name="cledoo_mcp_full">
+          <block title="MCP Server" name="mcp_server_block">
+            <setting string="Enable MCP Server"
+                     help="Expose the /mcp endpoint for AI agents (Claude, MCP clients). Clients authenticate via OAuth 2.1 (built in) or a standard Odoo API key; access rights are your Odoo ACLs.">
+              <field name="mcp_enabled"/>
+              <div class="text-muted mt8">
+                Version <field name="mcp_module_version" readonly="1"
+                               class="oe_inline"/>
+              </div>
+              <div class="text-muted mt8" invisible="not mcp_enabled">
+                Endpoint: <field name="mcp_endpoint_url" readonly="1" class="oe_inline"/>
+                <br/>AI chat apps (claude.ai, ChatGPT, Le Chat…): paste this
+                URL as a custom connector — login and consent happen via
+                OAuth, no key to copy.
+                <br/>Other clients: authenticate with an Odoo API key
+                (Preferences &gt; Account Security &gt; New API Key) sent as
+                a Bearer token.
+              </div>
+              <div class="alert alert-warning mt8" role="alert"
+                   invisible="not mcp_enabled or not mcp_base_url_insecure">
+                <field name="mcp_base_url_insecure" invisible="1"/>
+                Your <b>web.base.url</b> uses http://. OAuth clients (Claude)
+                require https and will refuse to connect. If you run behind a
+                reverse proxy, set <b>proxy_mode = True</b> in odoo.conf.
+              </div>
+              <div class="alert alert-info mt8" role="alert"
+                   invisible="not mcp_enabled or not mcp_base_url_unfrozen">
+                <field name="mcp_base_url_unfrozen" invisible="1"/>
+                Tip: set the <b>web.base.url.freeze</b> system parameter to
+                <b>True</b> so admin logins cannot rewrite your public URL and
+                break the OAuth discovery metadata.
+              </div>
+            </setting>
+            <setting string="Connected AI clients"
+                     help="Review and revoke AI clients connected via OAuth.">
+              <button name="%(cledoo_mcp_full.action_mcp_oauth_token)d"
+                      type="action" string="Manage connections" class="btn-link"/>
+              <button name="%(cledoo_mcp_full.action_mcp_endpoint_activity)d"
+                      type="action" string="View activity" class="btn-link"/>
+              <button name="%(cledoo_mcp_full.action_mcp_session)d"
+                      type="action" string="View sessions" class="btn-link"/>
+            </setting>
+            <setting string="Featured models"
+                     help="The curated model catalog the AI sees first — edit it to match your business.">
+              <button name="%(cledoo_mcp_full.action_mcp_model_profile)d"
+                      type="action" string="Edit catalog" class="btn-link"/>
+            </setting>
+            <setting string="Rate limit"
+                     help="Per-connection request budget on /mcp (requests per minute, 0 disables). Approximate across workers.">
+              <field name="mcp_rate_limit" class="oe_inline"/>
+            </setting>
+            <setting string="Max inline size"
+                     help="Ceiling (MB) for tools that inline a whole file/export into the response: read_resource, export_records, print_report. Larger payloads are refused instead of loading them into memory.">
+              <field name="mcp_max_inline_mb" class="oe_inline"/> MB
+            </setting>
+            <setting string="Tag MCP chatter messages"
+                     help="Show a small MCP badge on chatter messages written by AI clients, with the client name on hover.">
+              <field name="mcp_annotate_messages"/>
+            </setting>
+            <setting string="Anonymous usage statistics (opt-in)"
+                     help="OFF by default — nothing is sent unless you enable this. When enabled: weekly anonymous ping to PostHog (EU), version numbers and aggregate counters only — never your data, model names or hostnames. Exact payload documented in the README and at https://cledoo.com/privacy.">
+              <field name="mcp_telemetry"/>
+            </setting>
+            <setting string="Guide &amp; use cases"
+                     help="A hands-on getting-started guide and real-world use cases by role — what sales, production, leadership and IT actually ask their AI on Odoo, with ready-to-use prompts.">
+              <button type="object" name="action_open_mcp_guide_url"
+                      class="btn-link" icon="fa-book" string="Read the guide"/>
+            </setting>
+            <setting string="Govern your AI with MCP Pro"
+                     help="Know exactly what the AI did — and decide what it may do. A global read-only kill-switch and per-connection scopes, an exportable audit trail of every AI call, automatic data privacy masking (even in exports), per-user allow/deny policies with a dry-run simulator, human approval for risky writes, and an outbound guard so the AI never emails anyone on its own. One-time purchase, no subscription.">
+              <button type="object" name="action_open_mcp_pro_url"
+                      class="btn btn-primary" string="Discover MCP Pro"/>
+            </setting>
+          </block>
+        </app>
+      </xpath>
+    </field>
+  </record>
+</odoo>

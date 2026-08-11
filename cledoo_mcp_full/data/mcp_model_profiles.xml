@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
+<odoo noupdate="1">
+  <!-- Curated LLM catalog seed. Entries whose module is not installed are
+       ignored at runtime (list_models checks `model in env`), so shipping
+       the full business list here is safe on any database. Admins edit
+       this list under Settings > MCP Server > Featured models. -->
+  <record id="profile_res_partner" model="mcp.model.profile">
+    <field name="sequence">10</field>
+    <field name="model_name">res.partner</field>
+    <field name="llm_hint">Contacts: customers, vendors, companies and people</field>
+  </record>
+  <record id="profile_sale_order" model="mcp.model.profile">
+    <field name="sequence">20</field>
+    <field name="model_name">sale.order</field>
+    <field name="llm_hint">Sales orders and quotations</field>
+  </record>
+  <record id="profile_sale_order_line" model="mcp.model.profile">
+    <field name="sequence">21</field>
+    <field name="model_name">sale.order.line</field>
+    <field name="llm_hint">Individual lines of sales orders</field>
+  </record>
+  <record id="profile_crm_lead" model="mcp.model.profile">
+    <field name="sequence">30</field>
+    <field name="model_name">crm.lead</field>
+    <field name="llm_hint">CRM leads and opportunities (pipeline)</field>
+  </record>
+  <record id="profile_account_move" model="mcp.model.profile">
+    <field name="sequence">40</field>
+    <field name="model_name">account.move</field>
+    <field name="llm_hint">Invoices, vendor bills, credit notes and journal entries</field>
+  </record>
+  <record id="profile_account_move_line" model="mcp.model.profile">
+    <field name="sequence">41</field>
+    <field name="model_name">account.move.line</field>
+    <field name="llm_hint">Accounting journal items (invoice/entry lines)</field>
+  </record>
+  <record id="profile_account_payment" model="mcp.model.profile">
+    <field name="sequence">42</field>
+    <field name="model_name">account.payment</field>
+    <field name="llm_hint">Customer and vendor payments</field>
+  </record>
+  <record id="profile_product_template" model="mcp.model.profile">
+    <field name="sequence">50</field>
+    <field name="model_name">product.template</field>
+    <field name="llm_hint">Products (catalog templates)</field>
+  </record>
+  <record id="profile_product_product" model="mcp.model.profile">
+    <field name="sequence">51</field>
+    <field name="model_name">product.product</field>
+    <field name="llm_hint">Product variants (sellable/stockable units)</field>
+  </record>
+  <record id="profile_purchase_order" model="mcp.model.profile">
+    <field name="sequence">60</field>
+    <field name="model_name">purchase.order</field>
+    <field name="llm_hint">Purchase orders and RFQs</field>
+  </record>
+  <record id="profile_stock_picking" model="mcp.model.profile">
+    <field name="sequence">70</field>
+    <field name="model_name">stock.picking</field>
+    <field name="llm_hint">Inventory transfers: deliveries and receipts</field>
+  </record>
+  <record id="profile_stock_quant" model="mcp.model.profile">
+    <field name="sequence">71</field>
+    <field name="model_name">stock.quant</field>
+    <field name="llm_hint">Stock on hand by product and location</field>
+  </record>
+  <record id="profile_mrp_production" model="mcp.model.profile">
+    <field name="sequence">80</field>
+    <field name="model_name">mrp.production</field>
+    <field name="llm_hint">Manufacturing orders</field>
+  </record>
+  <record id="profile_project_project" model="mcp.model.profile">
+    <field name="sequence">90</field>
+    <field name="model_name">project.project</field>
+    <field name="llm_hint">Projects</field>
+  </record>
+  <record id="profile_project_task" model="mcp.model.profile">
+    <field name="sequence">91</field>
+    <field name="model_name">project.task</field>
+    <field name="llm_hint">Project tasks and subtasks</field>
+  </record>
+  <record id="profile_hr_employee" model="mcp.model.profile">
+    <field name="sequence">100</field>
+    <field name="model_name">hr.employee</field>
+    <field name="llm_hint">Employees</field>
+  </record>
+  <record id="profile_hr_leave" model="mcp.model.profile">
+    <field name="sequence">101</field>
+    <field name="model_name">hr.leave</field>
+    <field name="llm_hint">Time off / leave requests</field>
+  </record>
+  <record id="profile_hr_expense" model="mcp.model.profile">
+    <field name="sequence">102</field>
+    <field name="model_name">hr.expense</field>
+    <field name="llm_hint">Employee expenses</field>
+  </record>
+  <record id="profile_helpdesk_ticket" model="mcp.model.profile">
+    <field name="sequence">110</field>
+    <field name="model_name">helpdesk.ticket</field>
+    <field name="llm_hint">Helpdesk / support tickets</field>
+  </record>
+  <record id="profile_pos_order" model="mcp.model.profile">
+    <field name="sequence">120</field>
+    <field name="model_name">pos.order</field>
+    <field name="llm_hint">Point of sale orders</field>
+  </record>
+  <record id="profile_event_event" model="mcp.model.profile">
+    <field name="sequence">130</field>
+    <field name="model_name">event.event</field>
+    <field name="llm_hint">Events and registrations</field>
+  </record>
+  <record id="profile_calendar_event" model="mcp.model.profile">
+    <field name="sequence">140</field>
+    <field name="model_name">calendar.event</field>
+    <field name="llm_hint">Calendar meetings and appointments</field>
+  </record>
+  <record id="profile_mail_activity" model="mcp.model.profile">
+    <field name="sequence">150</field>
+    <field name="model_name">mail.activity</field>
+    <field name="llm_hint">Scheduled activities / to-dos on records</field>
+  </record>
+  <record id="profile_res_users" model="mcp.model.profile">
+    <field name="sequence">160</field>
+    <field name="model_name">res.users</field>
+    <field name="llm_hint">Odoo user accounts</field>
+  </record>
+  <record id="profile_res_company" model="mcp.model.profile">
+    <field name="sequence">170</field>
+    <field name="model_name">res.company</field>
+    <field name="llm_hint">Companies of this database (multi-company)</field>
+  </record>
+  <record id="profile_ir_attachment" model="mcp.model.profile">
+    <field name="sequence">180</field>
+    <field name="model_name">ir.attachment</field>
+    <field name="llm_hint">Files and attachments linked to records</field>
+  </record>
+</odoo>

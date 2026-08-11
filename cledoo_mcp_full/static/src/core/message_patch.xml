@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
+<templates xml:space="preserve">
+  <t t-inherit="mail.Message" t-inherit-mode="extension">
+    <xpath expr="//span[hasclass('o-mail-Message-author')]" position="after">
+      <span t-if="message.mcp_name" class="badge text-bg-info ms-1"
+            style="font-size:0.6rem;"
+            t-attf-title="Written via MCP by {{ message.mcp_name }}">MCP</span>
+    </xpath>
+  </t>
+</templates>

@@ -1,0 +1,36 @@
+<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 12px; }
+  .card { border: 1px solid #d0d5dd; border-radius: 8px; padding: 16px; }
+  .state { display: inline-block; padding: 2px 10px; border-radius: 10px;
+           font-size: 12px; font-weight: 600; }
+  .pending { background: #fef0c7; color: #93540a; }
+  .approved { background: #d1fadf; color: #05603a; }
+  .refused, .expired { background: #fee4e2; color: #912018; }
+  .muted { color: #667085; font-size: 12px; margin-top: 8px; }
+  .denied { border-color: #fda29b; background: #fffbfa; }
+  .rule { font-weight: 700; color: #912018; }
+</style>
+</head>
+<body>
+<div class="card denied">
+  <div>Denied by rule <span class="rule" id="rule">—</span></div>
+  <div class="muted" id="message">No further detail was provided.</div>
+</div>
+<script>
+  window.addEventListener("message", function (ev) {
+    var d = (ev.data && ev.data.toolResult) || ev.data || {};
+    if (d.rule_name) {
+      document.getElementById("rule").textContent = d.rule_name;
+    }
+    if (d.message) {
+      document.getElementById("message").textContent = d.message;
+    }
+  });
+</script>
+</body>
+</html>

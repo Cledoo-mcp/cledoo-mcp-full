@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
+<odoo noupdate="1">
+  <!-- Telemetry is OPT-IN (Odoo Apps requirement): no default parameter is
+       installed. An absent cledoo_mcp_full.telemetry means disabled — both the
+       runtime (telemetry_enabled) and the Settings checkbox render OFF
+       until the admin explicitly enables it. -->
+  <record id="param_rate_limit_default" model="ir.config_parameter">
+    <field name="key">cledoo_mcp_full.rate_limit</field>
+    <field name="value">120</field>
+  </record>
+
+  <record id="ir_cron_mcp_session_gc" model="ir.cron">
+    <field name="name">MCP: garbage-collect idle sessions (daily)</field>
+    <field name="model_id" ref="model_mcp_session"/>
+    <field name="state">code</field>
+    <field name="code">model._gc_sessions()</field>
+    <field name="interval_number">1</field>
+    <field name="interval_type">days</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="ir_cron_mcp_telemetry" model="ir.cron">
+    <field name="name">MCP: anonymous telemetry ping (weekly, opt-in)</field>
+    <field name="model_id" ref="model_mcp_telemetry"/>
+    <field name="state">code</field>
+    <field name="code">model._cron_send()</field>
+    <field name="interval_number">7</field>
+    <field name="interval_type">days</field>
+    <field name="active" eval="True"/>
+  </record>
+</odoo>
