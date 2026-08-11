@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """PII masking rules, applied post-execute on tool results (before the
 audit capture). Derived-field expansion closes the email_normalized

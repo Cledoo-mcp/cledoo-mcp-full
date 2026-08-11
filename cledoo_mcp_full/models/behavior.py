@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """Behavior radar: cron-evaluated detectors over recent audit rows.
 Breach -> mcp.behavior.alert (+ admin activity); rules with

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """Read-only SQL view over the audit spine for graph/pivot dashboards."""
 from odoo import fields, models

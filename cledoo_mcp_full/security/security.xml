@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
 <odoo>
   <!-- No category/privilege link here on purpose: res.groups exposes
        category_id directly on Odoo 18 but via res.groups.privilege on

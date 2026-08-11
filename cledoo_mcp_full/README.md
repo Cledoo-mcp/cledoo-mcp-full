@@ -6,7 +6,7 @@ writes, per-principal quotas, a full audit trail, an agent outbound-comms
 guard, and AI usage analytics + a behavior radar.
 
 Cledoo MCP Pro is a paid add-on — **€189, one-time** (per Odoo major
-version). It is sold as code: possession is the licence (OPL-1), there is
+version). It is sold as code: possession is the licence (LGPL-3), there is
 no runtime licence key. Every feature below is active whenever
 `cledoo_mcp_full` is installed. Support and updates are provided to
 purchasers.
@@ -60,7 +60,7 @@ Sur **Odoo.sh** : pas de zip à téléverser — commitez le dossier
 l'installe.
 
 There is no licence key, activation step or phone-home: possession of the
-code is the licence (OPL-1). Every governance feature (`scopes`, `policy`,
+code is the licence (LGPL-3). Every governance feature (`scopes`, `policy`,
 `masking`, `approvals`, `quotas`, `outbound`, `analytics`, `apps`, `audit`)
 is active as soon as the module is installed.
 

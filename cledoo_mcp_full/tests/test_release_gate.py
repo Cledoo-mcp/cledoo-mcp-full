@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """Cross-feature invariants the spec calls non-negotiable."""
 from odoo.tests import tagged

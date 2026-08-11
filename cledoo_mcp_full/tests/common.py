@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """Test helper shim. Pro no longer has a licence — features are always
 on — so install_license/uninstall_license are no-ops kept only so the

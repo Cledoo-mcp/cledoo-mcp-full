@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """MCP Apps (feature 'apps'): self-contained HTML documents served as
 ui:// resources; clients with MCP Apps support render them in-chat.

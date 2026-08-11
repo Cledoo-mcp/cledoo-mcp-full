@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """B1 (Task 8 review finding): read_resource/print_report carry no
 `model` argument, so without deriving one from their own arguments they

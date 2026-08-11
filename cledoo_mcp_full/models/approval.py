@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """Human-approved writes. A policy rule with verdict 'approval' turns a
 write call into a pending ticket; a human in group_approver approves in

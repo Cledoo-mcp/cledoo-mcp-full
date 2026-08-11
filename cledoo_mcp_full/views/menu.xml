@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- SPDX-License-Identifier: OPL-1.0 ; Copyright (c) 2026 Cledoo -->
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later ; Copyright (c) 2026 Cledoo -->
 <odoo>
   <menuitem id="menu_mcp_pro_root" name="MCP Pro"
             web_icon="cledoo_mcp_full,static/description/icon.png"

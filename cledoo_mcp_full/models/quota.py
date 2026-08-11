@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """Per-principal daily budgets on top of the base per-minute rate limit.
 Counters = today's audit rows (no separate counter table to drift)."""

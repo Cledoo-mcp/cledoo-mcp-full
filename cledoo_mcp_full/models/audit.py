@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """mcp.audit.log — the data spine. Every governed MCP call lands here
 (allowed, denied, error, pending), and the policy simulator, quotas,

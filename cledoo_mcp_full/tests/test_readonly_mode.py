@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """T3: the global read-only kill-switch, moved here from the free module
 (fine-grained governance is paid-only). Same system parameter

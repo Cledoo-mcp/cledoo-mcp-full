@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """Pro contributes anonymous aggregate usage to the base mcp_ping event
 (no raw dbuuid, no per-purchase join — opt-out via the base toggle)."""

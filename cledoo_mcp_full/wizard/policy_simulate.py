@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: OPL-1.0
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (c) 2026 Cledoo
 """Replay recorded audit traffic through the REAL policy matching
 (mcp.policy._first_match — first active rule by sequence wins, the
