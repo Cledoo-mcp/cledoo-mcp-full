@@ -5,12 +5,6 @@ allow/deny policies with a dry-run simulator, PII masking, human-approved
 writes, per-principal quotas, a full audit trail, an agent outbound-comms
 guard, and AI usage analytics + a behavior radar.
 
-Cledoo MCP Pro is a paid add-on — **€189, one-time** (per Odoo major
-version). It is sold as code: possession is the licence (LGPL-3), there is
-no runtime licence key. Every feature below is active whenever
-`cledoo_mcp_full` is installed. Support and updates are provided to
-purchasers.
-
 ## Install
 
 After purchase you receive `cledoo-mcp-pro.zip`. Prerequisite: the free base
